@@ -2,62 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* Warm, calming palette */
-    --background: 45 30% 97%;
-    --foreground: 220 20% 20%;
+    /* Feminine wellness palette */
+    --background: 270 30% 98%;
+    --foreground: 270 20% 25%;
 
-    --card: 45 25% 95%;
-    --card-foreground: 220 20% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 20% 25%;
 
-    --popover: 45 25% 95%;
-    --popover-foreground: 220 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 20% 25%;
 
-    /* Sage green primary */
-    --primary: 150 25% 45%;
-    --primary-foreground: 45 30% 97%;
+    /* Dusty rose primary */
+    --primary: 340 35% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 20% 90%;
-    --secondary-foreground: 220 20% 25%;
+    /* Lavender secondary */
+    --secondary: 270 30% 92%;
+    --secondary-foreground: 270 25% 35%;
 
-    --muted: 45 15% 88%;
-    --muted-foreground: 220 10% 50%;
+    /* Cream muted */
+    --muted: 40 30% 94%;
+    --muted-foreground: 270 15% 50%;
 
-    --accent: 150 20% 85%;
-    --accent-foreground: 150 30% 25%;
+    /* Sage accent */
+    --accent: 150 25% 88%;
+    --accent-foreground: 150 30% 30%;
 
     --destructive: 0 70% 55%;
-    --destructive-foreground: 45 30% 97%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 45 15% 85%;
-    --input: 45 15% 85%;
-    --ring: 150 25% 45%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 340 35% 65%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
 
-    /* Profile colors */
-    --profile-hiper: 10 75% 60%;
-    --profile-colapso: 220 50% 55%;
-    --profile-oscilacion: 45 85% 55%;
-    --profile-hipo: 220 15% 35%;
-    --profile-digestivo: 160 45% 45%;
+    /* Profile colors - softer feminine versions */
+    --profile-hiper: 350 60% 65%;
+    --profile-colapso: 220 40% 60%;
+    --profile-oscilacion: 45 70% 60%;
+    --profile-hipo: 250 30% 55%;
+    --profile-digestivo: 165 40% 50%;
+
+    /* Option card colors */
+    --option-lavender: 270 40% 94%;
+    --option-rose: 340 40% 94%;
+    --option-sage: 150 30% 92%;
+    --option-cream: 40 40% 94%;
+    --option-periwinkle: 230 40% 94%;
 
     /* Gradients */
-    --gradient-calm: linear-gradient(135deg, hsl(150 25% 92%) 0%, hsl(45 30% 95%) 100%);
-    --gradient-result: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(150 20% 92%) 100%);
+    --gradient-feminine: linear-gradient(135deg, hsl(270 35% 96%) 0%, hsl(340 30% 97%) 50%, hsl(40 30% 97%) 100%);
+    --gradient-result: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(270 30% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(270 30% 98%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 20% 20% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(220 20% 20% / 0.12);
-    --shadow-option: 0 2px 12px -2px hsl(220 20% 20% / 0.06);
-    --shadow-option-hover: 0 6px 24px -4px hsl(150 25% 45% / 0.2);
+    /* Shadows - softer */
+    --shadow-soft: 0 4px 24px -4px hsl(270 30% 70% / 0.15);
+    --shadow-card: 0 8px 40px -8px hsl(270 30% 60% / 0.12);
+    --shadow-option: 0 2px 16px -2px hsl(270 30% 70% / 0.1);
+    --shadow-option-hover: 0 8px 30px -4px hsl(340 35% 65% / 0.2);
+    --shadow-glow: 0 0 40px hsl(340 35% 65% / 0.15);
 
     /* Typography */
-    --font-display: 'Fraunces', serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Nunito', sans-serif;
 
     /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
@@ -71,33 +83,39 @@
   }
 
   .dark {
-    --background: 220 20% 12%;
-    --foreground: 45 20% 95%;
+    --background: 270 15% 12%;
+    --foreground: 270 15% 95%;
 
-    --card: 220 18% 16%;
-    --card-foreground: 45 20% 95%;
+    --card: 270 15% 16%;
+    --card-foreground: 270 15% 95%;
 
-    --popover: 220 18% 16%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 270 15% 16%;
+    --popover-foreground: 270 15% 95%;
 
-    --primary: 150 30% 50%;
-    --primary-foreground: 220 20% 10%;
+    --primary: 340 40% 70%;
+    --primary-foreground: 270 15% 10%;
 
-    --secondary: 220 15% 22%;
-    --secondary-foreground: 45 20% 90%;
+    --secondary: 270 15% 22%;
+    --secondary-foreground: 270 15% 90%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 45 10% 60%;
+    --muted: 270 15% 20%;
+    --muted-foreground: 270 10% 60%;
 
     --accent: 150 25% 25%;
     --accent-foreground: 150 30% 85%;
 
     --destructive: 0 60% 45%;
-    --destructive-foreground: 45 30% 97%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 150 30% 50%;
+    --border: 270 15% 25%;
+    --input: 270 15% 25%;
+    --ring: 340 40% 70%;
+
+    --option-lavender: 270 30% 20%;
+    --option-rose: 340 30% 20%;
+    --option-sage: 150 25% 18%;
+    --option-cream: 40 25% 18%;
+    --option-periwinkle: 230 30% 20%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -133,12 +151,16 @@
     font-family: var(--font-body);
   }
 
-  .gradient-calm {
-    background: var(--gradient-calm);
+  .gradient-feminine {
+    background: var(--gradient-feminine);
   }
 
   .gradient-result {
     background: var(--gradient-result);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
   }
 
   .shadow-soft {
@@ -156,27 +178,61 @@
   .shadow-option-hover {
     box-shadow: var(--shadow-option-hover);
   }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
 }
 
 @layer components {
   .option-card {
-    @apply relative p-4 rounded-xl border border-border bg-card cursor-pointer 
+    @apply relative p-5 rounded-2xl border border-border/50 bg-card cursor-pointer 
            transition-all duration-300 ease-out shadow-option;
   }
 
   .option-card:hover {
-    @apply border-primary/40 shadow-option-hover -translate-y-0.5;
+    @apply border-primary/40 shadow-option-hover -translate-y-1;
   }
 
   .option-card.selected {
-    @apply border-primary bg-accent/50 shadow-option-hover;
+    @apply border-primary bg-primary/5 shadow-option-hover ring-2 ring-primary/20;
+  }
+
+  .option-card-lavender {
+    @apply bg-[hsl(var(--option-lavender))];
+  }
+
+  .option-card-rose {
+    @apply bg-[hsl(var(--option-rose))];
+  }
+
+  .option-card-sage {
+    @apply bg-[hsl(var(--option-sage))];
+  }
+
+  .option-card-cream {
+    @apply bg-[hsl(var(--option-cream))];
+  }
+
+  .option-card-periwinkle {
+    @apply bg-[hsl(var(--option-periwinkle))];
   }
 
   .progress-bar {
-    @apply h-1.5 rounded-full bg-muted overflow-hidden;
+    @apply h-2 rounded-full bg-secondary overflow-hidden;
   }
 
   .progress-bar-fill {
-    @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+    @apply h-full bg-primary rounded-full transition-all duration-700 ease-out;
+  }
+
+  .btn-feminine {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground shadow-soft 
+           hover:shadow-glow transition-all duration-300;
+  }
+
+  .btn-feminine-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground 
+           shadow-soft transition-all duration-300;
   }
 }
