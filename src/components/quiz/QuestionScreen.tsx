@@ -14,6 +14,14 @@ interface QuestionScreenProps {
   previousAnswer?: ProfileType;
 }
 
+const optionColors = [
+  'lavender',
+  'rose',
+  'sage',
+  'cream',
+  'periwinkle',
+] as const;
+
 export function QuestionScreen({
   question,
   currentIndex,
@@ -40,23 +48,41 @@ export function QuestionScreen({
 
   return (
     <div className={cn(
-      "min-h-screen flex flex-col px-4 py-6 md:py-10 bg-background transition-opacity duration-300",
+      "min-h-screen flex flex-col px-4 py-6 md:py-10 gradient-feminine transition-opacity duration-300",
       isExiting && "opacity-0"
     )}>
       <div className="w-full max-w-lg mx-auto flex-1 flex flex-col">
         <ProgressBar 
           current={currentIndex + 1} 
           total={totalQuestions} 
-          className="mb-8 animate-fade-in"
+          className="mb-6 animate-fade-in"
         />
+
+        {/* Question number badge */}
+        <div 
+          className="flex justify-center mb-4 animate-fade-in"
+          style={{ animationDelay: '50ms' }}
+        >
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            Pregunta {currentIndex + 1} de {totalQuestions}
+          </span>
+        </div>
 
         <div className="flex-1 flex flex-col">
           <h2 
-            className="font-display text-xl md:text-2xl font-medium text-foreground leading-snug mb-8 animate-fade-in"
+            className="font-display text-2xl md:text-3xl font-medium text-foreground leading-snug mb-6 text-center animate-fade-in"
             style={{ animationDelay: '100ms' }}
           >
             {question.question}
           </h2>
+
+          {/* Microcopy */}
+          <p 
+            className="text-sm text-muted-foreground text-center mb-6 animate-fade-in italic"
+            style={{ animationDelay: '150ms' }}
+          >
+            Elige la descripción que más se acerque a tu experiencia interna
+          </p>
 
           <div className="space-y-3 mb-8">
             {question.options.map((option, index) => (
@@ -66,18 +92,22 @@ export function QuestionScreen({
                 isSelected={selected === option.profile}
                 onClick={() => setSelected(option.profile)}
                 index={index}
+                colorVariant={optionColors[index]}
               />
             ))}
           </div>
 
-          <div className="mt-auto pt-6">
+          <div className="mt-auto pt-4">
             <Button
               onClick={handleContinue}
               disabled={!selected}
-              className="w-full h-14 text-base font-medium rounded-xl transition-all duration-300"
+              className={cn(
+                "w-full h-14 text-base font-semibold rounded-2xl transition-all duration-300",
+                selected ? "btn-feminine" : "bg-muted text-muted-foreground"
+              )}
               style={{ 
                 opacity: 0,
-                animation: 'fade-in 0.4s ease-out 0.5s forwards'
+                animation: 'fade-in 0.5s ease-out 0.4s forwards'
               }}
             >
               {currentIndex === totalQuestions - 1 ? 'Ver mi resultado' : 'Continuar'}

@@ -6,33 +6,43 @@ interface OptionCardProps {
   isSelected: boolean;
   onClick: () => void;
   index: number;
+  colorVariant?: 'lavender' | 'rose' | 'sage' | 'cream' | 'periwinkle';
 }
 
-export function OptionCard({ text, isSelected, onClick, index }: OptionCardProps) {
+export function OptionCard({ text, isSelected, onClick, index, colorVariant = 'lavender' }: OptionCardProps) {
+  const colorClasses = {
+    lavender: 'bg-option-lavender hover:bg-option-lavender/80',
+    rose: 'bg-option-rose hover:bg-option-rose/80',
+    sage: 'bg-option-sage hover:bg-option-sage/80',
+    cream: 'bg-option-cream hover:bg-option-cream/80',
+    periwinkle: 'bg-option-periwinkle hover:bg-option-periwinkle/80',
+  };
+
   return (
     <button
       onClick={onClick}
       className={cn(
         "option-card w-full text-left group",
-        isSelected && "selected"
+        colorClasses[colorVariant],
+        isSelected && "selected !bg-primary/10"
       )}
       style={{ 
         animationDelay: `${index * 80}ms`,
         opacity: 0,
-        animation: `fade-in 0.4s ease-out ${index * 80}ms forwards`
+        animation: `fade-in 0.5s ease-out ${index * 80}ms forwards`
       }}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-4">
         <div 
           className={cn(
-            "flex-shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300",
+            "flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 mt-0.5",
             isSelected 
-              ? "bg-primary border-primary" 
-              : "border-muted-foreground/30 group-hover:border-primary/50"
+              ? "bg-primary border-primary scale-110" 
+              : "border-foreground/20 group-hover:border-primary/50 group-hover:scale-105"
           )}
         >
           {isSelected && (
-            <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />
+            <Check className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={3} />
           )}
         </div>
         <p className={cn(
